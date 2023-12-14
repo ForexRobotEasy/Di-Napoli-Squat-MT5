@@ -1,0 +1,161 @@
+mql5
+//+------------------------------------------------------------------+
+//|                                                       Di Napoli Squat MT5 |
+//|                                         Copyright 2022, forexroboteasy.com |
+//|                                                         Forex Robot Easy Team |
+//+------------------------------------------------------------------+
+#property strict
+
+// Define global variables
+double StopLoss = 0;
+double TakeProfit = 0;
+
+//+------------------------------------------------------------------+
+//| Expert initialization function                                   |
+//+------------------------------------------------------------------+
+int OnInit()
+{
+    // Set stop-loss and take-profit levels
+    StopLoss = CalculateStopLoss();
+    TakeProfit = CalculateTakeProfit();
+
+    return(INIT_SUCCEEDED);
+}
+
+//+------------------------------------------------------------------+
+//| Expert deinitialization function                                 |
+//+------------------------------------------------------------------+
+void OnDeinit(const int reason)
+{
+    // Clean up any resources
+}
+
+//+------------------------------------------------------------------+
+//| Expert tick function                                             |
+//+------------------------------------------------------------------+
+void OnTick()
+{
+    // Check for trading signal
+    if (IsSignalGenerated())
+    {
+        // Calculate position size based on risk management rules
+        double lotSize = CalculateLotSize();
+
+        // Open a position with appropriate stop-loss and take-profit levels
+        if (SignalIsBuy())
+        {
+            OpenBuyPosition(lotSize, StopLoss, TakeProfit);
+        }
+        else if (SignalIsSell())
+        {
+            OpenSellPosition(lotSize, StopLoss, TakeProfit);
+        }
+    }
+
+    // Update stop-loss and take-profit levels for open positions
+    ManageOpenPositions();
+}
+
+//+------------------------------------------------------------------+
+//| Check if a trading signal is generated                            |
+//+------------------------------------------------------------------+
+bool IsSignalGenerated()
+{
+    // Implement logic to determine if a signal is generated
+    // based on the identified support and resistance levels
+
+    return true; // Placeholder, replace with actual logic
+}
+
+//+------------------------------------------------------------------+
+//| Check if the generated signal is a buy signal                     |
+//+------------------------------------------------------------------+
+bool SignalIsBuy()
+{
+    // Implement logic to determine if the generated signal is a buy signal
+
+    return true; // Placeholder, replace with actual logic
+}
+
+//+------------------------------------------------------------------+
+//| Check if the generated signal is a sell signal                    |
+//+------------------------------------------------------------------+
+bool SignalIsSell()
+{
+    // Implement logic to determine if the generated signal is a sell signal
+
+    return true; // Placeholder, replace with actual logic
+}
+
+//+------------------------------------------------------------------+
+//| Calculate the lot size based on risk management rules             |
+//+------------------------------------------------------------------+
+double CalculateLotSize()
+{
+    // Implement logic to calculate the lot size based on risk management rules
+
+    return 0.01; // Placeholder, replace with actual logic
+}
+
+//+------------------------------------------------------------------+
+//| Open a buy position                                               |
+//+------------------------------------------------------------------+
+void OpenBuyPosition(double lotSize, double stopLoss, double takeProfit)
+{
+    // Implement logic to open a buy position with specified parameters
+
+    // Placeholder, replace with actual logic
+    Print('Buy position opened: Lot Size = ', lotSize, ', Stop Loss = ', stopLoss, ', Take Profit = ', takeProfit);
+}
+
+//+------------------------------------------------------------------+
+//| Open a sell position                                              |
+//+------------------------------------------------------------------+
+void OpenSellPosition(double lotSize, double stopLoss, double takeProfit)
+{
+    // Implement logic to open a sell position with specified parameters
+
+    // Placeholder, replace with actual logic
+    Print('Sell position opened: Lot Size = ', lotSize, ', Stop Loss = ', stopLoss, ', Take Profit = ', takeProfit);
+}
+
+//+------------------------------------------------------------------+
+//| Calculate the stop-loss level                                     |
+//+------------------------------------------------------------------+
+double CalculateStopLoss()
+{
+    // Implement logic to calculate the stop-loss level
+
+    return 1.0; // Placeholder, replace with actual logic
+}
+
+//+------------------------------------------------------------------+
+//| Calculate the take-profit level                                   |
+//+------------------------------------------------------------------+
+double CalculateTakeProfit()
+{
+    // Implement logic to calculate the take-profit level
+
+    return 2.0; // Placeholder, replace with actual logic
+}
+
+//+------------------------------------------------------------------+
+//| Manage open positions                                             |
+//+------------------------------------------------------------------+
+void ManageOpenPositions()
+{
+    // Implement logic to manage open positions, including
+    // monitoring and updating stop-loss and take-profit levels
+
+    // Placeholder, replace with actual logic
+    Print('Open positions managed');
+}
+
+//+------------------------------------------------------------------+
+//| Expert start function                                            |
+//+------------------------------------------------------------------+
+void OnStart()
+{
+    // Placeholder, replace with actual logic
+    Print('Expert started');
+}
